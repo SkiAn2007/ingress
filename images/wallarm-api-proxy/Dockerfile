@@ -18,7 +18,7 @@ ADD . /build/
 WORKDIR /build
 RUN go build -o proxy .
 
-FROM debian
+FROM debian:bullseye
 COPY --from=builder /build/proxy /
 COPY ca.pem /
 CMD ["./proxy"]
